@@ -1,5 +1,5 @@
 import streamlit as st
-import google.genai as genai
+from google import genai
 import time
 import re
 from google.genai import types
