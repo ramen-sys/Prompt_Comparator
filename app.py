@@ -216,7 +216,7 @@ def count_words(text:str):
 def build_prompts(user_input:str,task_type:str):
 
     examples_map={
-        "summarize":{
+        "Summarize":{
             "few":(
                 "Example 1:\nInput: The cat sat on the mat and looked out the window all day.\n"
                 "Output: A cat spent the day sitting on a mat, gazing outside.\n\n"
@@ -381,7 +381,7 @@ Built with Streamlit + Gemini API<br>
 </div>
 """, unsafe_allow_html=True)
     
-st.markdown('<h1 class="main_title">Prompt strategy lab</h1>',unsafe_allow_html=True)
+st.markdown('<h1 class="main-title">Prompt strategy lab</h1>',unsafe_allow_html=True)
 
 st.markdown(
     '<p class="subtitle">Compare Zero_Shot. Few Shot.Chain_of_thought</p>',unsafe_allow_html=True
@@ -414,7 +414,7 @@ if run:
             results[key]== {**pdata, **call_gemini(pdata["prompt"], model_choice,client, temperature)}
 
     cols=st.columns(3)
-    keys=["zero-shot","few-shot","chain_of_thought"]      
+    keys=["zero_shot","few_shot","chain_of_thought"]      
     max_latency = max(results[k]["latency"] for k in keys) or 1
 
     for col, key in zip(cols, keys):
