@@ -411,7 +411,7 @@ if run:
 
     with st.spinner("Calling Gemini for all three strategies..."):
         for key,pdata in prompts.items():
-            results[key]== {**pdata, **call_gemini(pdata["prompt"], model_choice,client, temperature)}
+            results[key]={**pdata, **call_gemini(pdata["prompt"], model_choice,client, temperature)}
 
     cols=st.columns(3)
     keys=["zero_shot","few_shot","chain_of_thought"]      
