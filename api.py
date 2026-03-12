@@ -200,8 +200,7 @@ def call_gemini(prompt,model,client,temperature):
             with open ("history.json",'w') as f:
                 data=[{"role":m.role,"text":m.parts[0].text}for m in history]
                 json.dump(data,f)
-        return {"text": text,
-            "error": None,}
+        return text
 with st.sidebar:
     st.markdown("## Configuration")
     st.markdown("---")
