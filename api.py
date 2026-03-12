@@ -223,7 +223,7 @@ with st.sidebar:
         min_value=0.0,max_value=1.0,value=0.7,step=0.05,
     )
 
-    user_input=st.text_area(
+user_input=st.text_area(
     "Your Input",
     placeholder="Type anything here-a question, a paragraph",
     height=120,
@@ -231,7 +231,7 @@ with st.sidebar:
 )
 col_btn,col_space=st.columns([1,3])
 with col_btn:
-    run=st.button("Run comparison",use_container_width=True)
+    run=st.button("Run ",use_container_width=True)
 
 if run:
     if not api_key:
@@ -248,6 +248,9 @@ if run:
     with st.spinner("Calling Gemini for all three strategies..."):
         for key,pdata in prompt.items():
             results[key]={**pdata, **call_gemini(pdata["prompt"], model_choice,client, temperature)} 
+    st.text(
+        body=results
+    )
 
         
 
